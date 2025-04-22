@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="{% if meme %}{% url 'editar' meme.id %}{% else %}{% url 'adicionar' %}{% endif %}" method="POST">
+        {% csrf_token %}
+        <label for="name">Nome do Meme:</label>
+        <input type="text" name="name" id="name" value="{{ meme.nome }}">
+        <label for="descricao">Descrição:</label>
+        <input type="text" name="descricao" id="descricao" value="{{ meme.descricao }}">
+        <label for="ano">Ano:</label>
+        <input type="number" name="ano" value="{{ meme.ano }}" id="ano">
+        <button type="submit">Enviar</button>
+    </form>
+    
+</body>
+</html>

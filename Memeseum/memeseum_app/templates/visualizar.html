@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualizar</title>
+</head>
+<body>
+    {% for meme in memes %}
+        <p>{{ meme.nome }}</p>
+        <p>{{ meme.descricao }}</p>
+        <p>{{ meme.ano }}</p>
+        <form action="{% url 'deletar' meme.id %}" method="POST">
+            {% csrf_token %}
+            <button type="submit" >Deletar</button>
+        </form>
+        <form action="{% url 'editar' meme.id %}" method="GET">
+            {% csrf_token %}
+            <button type="submit" >Editar</button>
+        </form>
+    {% endfor %}
+</body>
+</html>
