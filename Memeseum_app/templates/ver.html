@@ -31,7 +31,9 @@
                         <div class="meme-card" data-meme-id="{{ meme.id }}">
                             <!-- Imagem à esquerda -->
                             <div class="meme-image">
-                                <img src="{{ meme.imagem.url }}" alt="Imagem do meme">
+                                {% if meme.imagem %}
+                                    <img src="{{ meme.imagem.url }}" alt="Imagem do meme">
+                                {% endif %}
                             </div>
                             <!-- Informações à direita -->
                             <div class="meme-info">
